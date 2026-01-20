@@ -54,3 +54,6 @@ app.get('/products/:id', (req, res) => Query(req, res, 'SELECT name FROM product
 
 app.post('/users', (req, res) => Query(req, res, 'INSERT INTO users (name) VALUES (?)', [req.body.name], false));
 app.post('/products', (req, res) => Query(req, res, 'INSERT INTO products (name) VALUES (?)', [req.body.name], false));
+
+app.put('/users/:id', (req, res) => Query(req, res, 'UPDATE users SET name = ? WHERE id  = ?', req.body.name, [req.params.id]));
+app.put('/products/:id', (req, res) => Query(req, res, 'UPDATE products SET name = ? WHERE id  = ?', req.body.name, [req.params.id]));
