@@ -57,3 +57,6 @@ app.post('/products', (req, res) => Query(req, res, 'INSERT INTO products (name)
 
 app.put('/users/:id', (req, res) => Query(req, res, 'UPDATE users SET name = ? WHERE id  = ?', req.body.name, [req.params.id]));
 app.put('/products/:id', (req, res) => Query(req, res, 'UPDATE products SET name = ? WHERE id  = ?', req.body.name, [req.params.id]));
+
+app.delete('/users/:id', (req, res) => Query(req, res, 'DELETE FROM users WHERE id = ?', false, [req.params.id]))
+app.delete('/products/:id', (req, res) => Query(req, res, 'DELETE FROM products WHERE id = ?', false, [req.params.id]))
